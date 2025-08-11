@@ -24,35 +24,24 @@ export default function HomePage() {
   };
 
   return (
-    <main style={{ maxWidth: 560, margin: '40px auto', padding: 24 }}>
-      <h1 style={{ fontSize: 28, marginBottom: 12 }}>Hızlı Toplantı</h1>
-      <p style={{ opacity: 0.8, marginBottom: 20 }}>
-        Tamamen ücretsiz, Jitsi tabanlı. Oda adı gir veya rastgele oda oluştur.
-      </p>
+    <main className="glass hero">
+      <h1>Hızlı, ücretsiz ve güzel bir toplantı deneyimi</h1>
+      <p>Jitsi tabanlı, tarayıcıdan anında katıl. Davet linkini paylaş, geri kalanını bize bırak.</p>
 
-      <label>Görünen ad</label>
-      <input
-        value={displayName}
-        onChange={(e) => setDisplayName(e.target.value)}
-        placeholder="Adın"
-        style={{ width: '100%', padding: 10, margin: '6px 0 16px', borderRadius: 8, border: '1px solid #ddd' }}
-      />
+      <div className="card glass stack">
+        <div className="stack">
+          <label>Görünen ad</label>
+          <input className="input" value={displayName} onChange={(e)=>setDisplayName(e.target.value)} placeholder="Adın" />
+        </div>
 
-      <label>Oda adı</label>
-      <input
-        value={room}
-        onChange={(e) => setRoom(e.target.value)}
-        placeholder="örn. ekip-toplantisi"
-        style={{ width: '100%', padding: 10, margin: '6px 0 16px', borderRadius: 8, border: '1px solid #ddd' }}
-      />
+        <div className="stack">
+          <label>Oda adı</label>
+          <input className="input" value={room} onChange={(e)=>setRoom(e.target.value)} placeholder="örn. ekip-toplantisi" />
+        </div>
 
-      <div style={{ display: 'flex', gap: 12 }}>
-        <button onClick={() => go()} style={{ padding: '10px 14px', borderRadius: 10 }}>
-          Rastgele Oda Oluştur
-        </button>
-        <button onClick={() => go(room)} style={{ padding: '10px 14px', borderRadius: 10 }}>
-          Bu Odaya Katıl
-        </button>
+        <div className="row" style={{justifyContent:'flex-end', marginTop:6}}>
+          <button className="btn btn-primary" onClick={()=>go(room)}>Bu Odaya Katıl</button>
+        </div>
       </div>
     </main>
   );
